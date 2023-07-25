@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { GetScreens, MinimiseAppScreen } from "../wailsjs/go/main/App";
+import { GetScreens } from "../wailsjs/go/main/App";
+import { WindowMinimise } from '../wailsjs/runtime/runtime'
 import ScreenDummy from "./components/devices/Screen";
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
           })}
         </div>
       </div>
-      <button onClick={() => MinimiseAppScreen()} className="border-blue-900 hover:bg-blue-600 shadow-md hover:shadow-lg active:bg-blue-700 shadow-neutral-400 transition-all ease-out duration-200 border px-4 py-2 rounded-lg bg-blue-500 font-bold text-white">
+      <button onClick={() => WindowMinimise()} className="border-blue-900 hover:bg-blue-600 shadow-md hover:shadow-lg active:bg-blue-700 shadow-neutral-400 transition-all ease-out duration-200 border px-4 py-2 rounded-lg bg-blue-500 font-bold text-white">
         New layout
       </button>
     </div>

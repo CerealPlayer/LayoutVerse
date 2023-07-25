@@ -5,3 +5,7 @@
 export function GetScreens() {
   return window['go']['main']['App']['GetScreens']();
 }
+
+export function MinimiseAppScreen() {
+  return window['go']['main']['App']['MinimiseAppScreen']();
+}

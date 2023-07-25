@@ -3,3 +3,5 @@
 import {lib} from '../models';
 
 export function GetScreens():Promise<Array<lib.Screen>>;
+
+export function MinimiseAppScreen():Promise<void>;

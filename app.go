@@ -4,6 +4,8 @@ import (
 	"context"
 
 	"lib"
+
+	"github.com/wailsapp/wails/v2/pkg/runtime"
 )
 
 type App struct {
@@ -25,4 +27,8 @@ func (a *App) startup(ctx context.Context) {
 
 func (a *App) GetScreens() []lib.Screen {
 	return a.dvc.Screens
+}
+
+func (a *App) MinimiseAppScreen() {
+	runtime.WindowMinimise(a.ctx)
 }

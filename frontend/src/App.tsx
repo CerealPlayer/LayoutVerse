@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { GetScreens } from "../wailsjs/go/main/App";
-import { WindowMaximise } from "../wailsjs/runtime/runtime";
 import Landing from "./pages/Landing";
 import NewLayout from "./pages/NewLayout";
 
@@ -18,7 +17,11 @@ function App() {
 
   const onNewLayout = async () => {
     setPage("new-layout");
-    WindowMaximise();
+  };
+
+  const layoutSaveHandler = async (layoutJSON: string | null) => {
+    setPage("landing");
+    console.log(layoutJSON);
   };
 
   return (
@@ -26,7 +29,9 @@ function App() {
       {page === "landing" && (
         <Landing screens={screens} onNewLayout={onNewLayout} />
       )}
-      {page === "new-layout" && <NewLayout />}
+      {page === "new-layout" && (
+        <NewLayout screens={screens} onLayoutSave={layoutSaveHandler} />
+      )}
     </>
   );
 }

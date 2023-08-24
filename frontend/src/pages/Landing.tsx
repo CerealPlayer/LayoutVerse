@@ -1,5 +1,6 @@
 import ScreenDummy from "../components/devices/Screen";
-import Button from "../components/ui/Button";
+import {Button} from "../components/ui/Button";
+import { ScreenDims } from "../types";
 
 interface Props {
   screens: ScreenDims[];

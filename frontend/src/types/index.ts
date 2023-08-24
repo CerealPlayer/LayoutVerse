@@ -1,11 +1,12 @@
-interface ScreenDims {
+export interface ScreenDims {
   Width: number;
   Height: number;
   Top: number;
   Left: number;
 }
 
-interface LayoutWindow {
+export interface LayoutWindow {
+  screenName?: string;
   dims: ScreenDims;
   appName: string;
 }

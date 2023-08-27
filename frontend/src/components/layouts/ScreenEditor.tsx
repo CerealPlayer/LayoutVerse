@@ -1,6 +1,7 @@
 import { ScreenDims } from "../../types";
-import { useEffect, useRef, useState } from "react";
+import { ChangeEventHandler, useEffect, useRef, useState } from "react";
 import { SplitBtn } from "./SplitBtns";
+import ConfirmationInput from "../ui/ConfirmationInput";
 
 interface Props {
   name: string;
@@ -26,14 +27,18 @@ export default function ScreenEditor({
     setWidth(width);
   }, []);
 
+  const changeHandler = (newValue: string) => {
+    onNameChange(newValue);
+  }
+
   return (
     <div>
       <div className="flex items-center justify-between gap-4 my-2">
-        <input
+        <ConfirmationInput
+          name="name"
           type="text"
-          value={name}
-          onChange={(e) => onNameChange(e.target.value)}
-          className="border-b-2 border-transparent transition-all ease-out duration-200 flex items-center justify-center overflow-hidden focus:outline-none focus:border-blue-500 focus-within:outline-none focus-within:border-blue-500 outline-none hover:border-blue-300"
+          initialValue={name}
+          onConfirm={changeHandler}
         />
         <div className="flex items-center gap-2">
           <SplitBtn />

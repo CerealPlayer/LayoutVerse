@@ -9,7 +9,19 @@ interface Props {
 }
 
 export default function NewLayout({ screens, onLayoutSave }: Props) {
-  const [layout, setLayout] = useState<LayoutWindow[]>([]);
+  const initialLayout = screens.map((screen, i) => {
+    return {
+      dims: {
+        Left: screen.Left,
+        Top: screen.Top,
+        Width: screen.Width,
+        Height: screen.Height,
+      },
+      screenName: `Screen ${i + 1}`,
+      appName: "",
+    };
+  });
+  const [layout, setLayout] = useState<LayoutWindow[]>(initialLayout);
 
   const layoutChangeHandler = (layoutJSON: string) => {
     console.log(layoutJSON);
@@ -31,13 +43,13 @@ export default function NewLayout({ screens, onLayoutSave }: Props) {
         </SecondaryButton>
       </div>
       <div className="flex gap-4 items-stretch [&>*]:w-full">
-        {screens.map((screen, index) => {
+        {layout.map((screen, index) => {
           return (
             <ScreenEditor
               key={`Screen-${index}`}
-              screen={screen}
+              screen={screen.dims}
               onLayoutChange={layoutChangeHandler}
-              name={`Screen ${index + 1}`}
+              name={screen.screenName}
               onNameChange={() => {}}
             />
           );

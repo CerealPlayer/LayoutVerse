@@ -6,7 +6,7 @@ export interface ScreenDims {
 }
 
 export interface LayoutWindow {
-  screenName?: string;
+  screenName: string;
   dims: ScreenDims;
   appName: string;
 }

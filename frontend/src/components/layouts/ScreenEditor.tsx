@@ -27,10 +27,6 @@ export default function ScreenEditor({
     setWidth(width);
   }, []);
 
-  const changeHandler = (newValue: string) => {
-    onNameChange(newValue);
-  }
-
   return (
     <div>
       <div className="flex items-center justify-between gap-4 my-2">
@@ -38,7 +34,7 @@ export default function ScreenEditor({
           name="name"
           type="text"
           initialValue={name}
-          onConfirm={changeHandler}
+          onConfirm={onNameChange}
         />
         <div className="flex items-center gap-2">
           <SplitBtn />

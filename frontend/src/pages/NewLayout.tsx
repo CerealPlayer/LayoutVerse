@@ -23,7 +23,7 @@ export default function NewLayout({ screens, onLayoutSave }: Props) {
   });
   const [layout, setLayout] = useState<LayoutWindow[]>(initialLayout);
 
-  const layoutChangeHandler = (layoutJSON: string) => {
+  const layoutChangeHandler = (layoutJSON: string, index: number) => {
     console.log(layoutJSON);
   };
 
@@ -48,7 +48,7 @@ export default function NewLayout({ screens, onLayoutSave }: Props) {
             <ScreenEditor
               key={`Screen-${index}`}
               screen={screen.dims}
-              onLayoutChange={layoutChangeHandler}
+              onLayoutChange={(layoutJSON) => layoutChangeHandler(layoutJSON, index)}
               name={screen.screenName}
               onNameChange={() => {}}
             />
